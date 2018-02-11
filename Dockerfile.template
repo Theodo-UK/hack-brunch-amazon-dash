@@ -18,6 +18,7 @@ COPY package.json package.json
 
 RUN apt-get update
 RUN apt-get install tcpdump
+RUN apt-get install curl
 
 # This install npm dependencies on the resin.io build server,
 # making sure to clean up the artifacts it creates in order to reduce the image size.
@@ -30,4 +31,4 @@ COPY . ./
 ENV INITSYSTEM on
 
 # server.js will run when container starts up on the device
-CMD ["npm", "start"]
+CMD ["./main.sh"]

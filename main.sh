@@ -5,7 +5,7 @@ wakeup_time=0
 
 
 
-tcpdump -l -n -i en0 | while read b; do
+tcpdump -l -n -i $PIFACE | while read b; do
   if ! $asleep ; then
     if echo $b | grep -q $button ; then
       curl 'https://api.twilio.com/2010-04-01/Accounts/AC94373b1fa646c4dbdb29f1b82920f4a6/Messages.json' -X POST \
