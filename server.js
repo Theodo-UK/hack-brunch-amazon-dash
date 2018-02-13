@@ -15,7 +15,18 @@ app.post('/say/', function (req, res) {
   const body = req.body;
   const text = body.name_field;
   const voice = body.voice_name;
-  say.speak(text, voice);
+  var sys  = require('util'),
+      exec = require('child_process').exec,
+      child;
+  child = exec(`espeak ${text}`, function (error, stdout, stderr) 
+    {
+        if (error) // There was an error executing our script
+        {
+            return next(error);
+        }
+
+        return res.status(200).send(stdout); // Show output in this case the success message
+    });
 });
 
 
