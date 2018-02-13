@@ -22,7 +22,7 @@ app.post('/say/', function (req, res) {
     {
         if (error) // There was an error executing our script
         {
-            return next(error);
+            console.log(error)
         }
 
         return res.status(200).send(stdout); // Show output in this case the success message
