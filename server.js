@@ -18,7 +18,7 @@ app.post('/say/', function (req, res) {
   var sys  = require('util'),
       exec = require('child_process').exec,
       child;
-  child = exec(`espeak ${text}`, function (error, stdout, stderr) 
+  child = exec(`espeak "${text}"`, function (error, stdout, stderr) 
     {
         if (error) // There was an error executing our script
         {
