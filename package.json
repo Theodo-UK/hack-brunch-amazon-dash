@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/resin-io-projects/simple-server-node#readme",
   "dependencies": {
-    "express": "*"
+    "body-parser": "^1.18.2",
+    "express": "*",
+    "say": "^0.14.0"
   }
 }
